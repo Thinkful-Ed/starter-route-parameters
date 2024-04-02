@@ -1,3 +1,4 @@
+import { useParams } from "react-router-dom";
 /*
   In a real application, this data could be pulled from an API
   instead of from a file.
@@ -5,7 +6,9 @@
 import users from "./data/users";
 
 function UserView() {
-  const user = {};
+  const { id } = useParams();
+
+  const user = users.find((user) => user.id === Number(id)) || {};
 
   return (
     <>
